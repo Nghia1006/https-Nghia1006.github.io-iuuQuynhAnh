@@ -4,89 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chúc Mừng 20/10</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); color: #333; text-align: center; overflow-x: hidden; }
-        header { padding: 40px 20px; background: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #e91e63; font-size: 2.5em; margin: 0; }
-        main { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        .hero { position: relative; height: 400px; background: url('https://via.placeholder.com/800x400/ff9a9e/ffffff?text=Hoa+20/10') center/cover no-repeat; border-radius: 15px; margin-bottom: 30px; overflow: hidden; }
-        .hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; top: 50%; transform: translateY(-50%); color: white; font-size: 1.3em; }
-        .content { background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0; }
-        .content p { font-size: 1.1em; color: #555; }
-        #qr-code, #reader { margin: 20px 0; }
-        button { background: #e91e63; color: white; border: none; padding: 12px 25px; font-size: 1em; border-radius: 25px; cursor: pointer; margin: 5px; }
-        button:hover { background: #c2185b; }
-        #secret-content { display: none; color: #e91e63; font-weight: bold; margin-top: 20px; }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        header {
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero {
+            position: relative;
+            height: 400px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            z-index: 2;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 1.3em;
+        }
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .content p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        .content img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        /* Hiệu ứng trái tim */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff4d4d;
+            animation: fly 3s linear;
+        }
+        @keyframes fly {
+            0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
+            100% { transform: translate(100px, -600px) scale(1.5); opacity: 0; }
+        }
+        /* Điều khiển âm thanh */
+        .audio-controls {
+            margin: 20px 0;
+            display: none; /* Ẩn nút ban đầu */
+        }
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #c2185b;
+        }
+        /* Thông báo nếu âm thanh bị chặn */
+        .audio-notice {
+            display: none;
+            color: #e91e63;
+            font-weight: bold;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Chúc Mừng 20/10 🌸</h1>
-        <p>Chúc bạn một ngày thật hạnh phúc và yêu thương! - 09:15 AM, 20/10/2025</p>
+        <p>Gửi đến người con gái anh yêu ❤️❤️❤️</p>
     </header>
     
     <main>
-        <div class="hero">
-            <video autoplay loop muted>
-                <source src="https://via.placeholder.com/800x400/ff9a9e/ffffff.mp4?text=Video+20/10" type="video/mp4">
+        <!-- <div class="hero">
+            <video loop controls>
+                <source src="image/hhh.mp4" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
             <div class="hero-content">
-                <h2>Chúc bạn luôn rạng rỡ như hoa! ❤️</h2>
+                <h2>Chúc bạn luôn rạng rỡ! ❤️</h2>
             </div>
-        </div>
+        </div> -->
         
         <div class="content">
-            <p>Chúc bạn một ngày 20/10 tràn đầy niềm vui, sức khỏe và những khoảnh khắc đáng nhớ! 🌹</p>
-        </div>
-        
-        <div class="content">
-            <h3>Xem Lời Chúc Đặc Biệt</h3>
-            <div id="qr-code"></div>
-            <button onclick="generateQR()">Tạo Mã QR</button>
-            <div id="reader"></div>
-            <button onclick="startScan()">Quét Mã QR</button>
-            <div id="secret-content">Bí mật: Chúc bạn nhận được thật nhiều quà xinh xắn hôm nay! 💝</div>
+            <p>Gửi người con gái a thương, cảm ơn sự xuất hiện của e đã giúp a có thêm động lưc để vượt qua giai đoạn rèn luyện này 🥰🥰🥰</p>
+            <img src="image/iuuu.png" >
+            <img src="image/thưiuuu.png" >
         </div>
     </main>
-    
+
+    <!-- Thông báo nếu âm thanh bị chặn -->
+    <div class="audio-notice" id="audio-notice">
+        Nhấn vào đây để bật âm thanh nhạc nền! 🎶
+    </div>
+
+    <!-- Âm thanh nền -->
+    <audio id="background-audio" src="image/Bản Tình Ca Đầu Tiên (XHTDRLX2) (1).mp3" autoplay muted loop></audio>
+
     <script>
-        function generateQR() {
-            const secretMessage = "Bí mật: Chúc bạn nhận được thật nhiều quà xinh xắn hôm nay! 💝";
-            document.getElementById('qr-code').innerHTML = '';
-            new QRCode(document.getElementById('qr-code'), {
-                text: secretMessage,
-                width: 200,
-                height: 200,
-                colorDark: '#e91e63',
-                colorLight: '#ffffff'
-            });
+        let heartCount = 0;
+        const maxHearts = 30;
+
+        // Hiệu ứng trái tim bay
+        function createHeart() {
+            if (heartCount < maxHearts) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+                document.body.appendChild(heart);
+
+                heartCount++;
+
+                heart.addEventListener('animationend', () => {
+                    heart.remove();
+                    heartCount--; // Giảm đếm khi trái tim biến mất
+                });
+            }
         }
 
-        const html5QrCode = new Html5Qrcode('reader');
-        function startScan() {
-            html5QrCode.start(
-                { facingMode: 'environment' },
-                { fps: 10, qrbox: 250 },
-                (decodedText) => {
-                    if (decodedText === "Bí mật: Chúc bạn nhận được thật nhiều quà xinh xắn hôm nay! 💝") {
-                        document.getElementById('secret-content').style.display = 'block';
-                    } else {
-                        alert('Mã QR không khớp!');
-                    }
-                    html5QrCode.stop();
-                },
-                (error) => { console.warn(error); }
-            ).catch(err => {
-                console.error('Không thể quét: ', err);
-                alert('Vui lòng cho phép truy cập camera!');
-            });
-        }
+        setInterval(createHeart, 500);
 
-        window.onload = generateQR;
+        // Thử phát âm thanh khi tải trang
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('background-audio');
+            audio.play().then(() => {
+                audio.muted = false;
+                document.getElementById('audio-notice').style.display = 'none';
+            }).catch(error => {
+                console.log("Autoplay bị chặn:", error);
+                document.getElementById('audio-notice').style.display = 'block';
+                document.getElementById('audio-notice').addEventListener('click', () => {
+                    audio.muted = false;
+                    audio.play().then(() => {
+                        document.getElementById('audio-notice').style.display = 'none';
+                    }).catch(err => console.log("Lỗi khi bật âm thanh:", err));
+                });
+            });
+        });
     </script>
 </body>
 </html>
