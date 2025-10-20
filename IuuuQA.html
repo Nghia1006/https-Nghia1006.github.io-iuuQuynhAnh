@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); color: #333; text-align: center; overflow-x: hidden; }
+        header { padding: 40px 20px; background: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #e91e63; font-size: 2.5em; margin: 0; }
+        main { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .hero { position: relative; height: 400px; background: url('https://via.placeholder.com/800x400/ff9a9e/ffffff?text=Hoa+20/10') center/cover no-repeat; border-radius: 15px; margin-bottom: 30px; overflow: hidden; }
+        .hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; top: 50%; transform: translateY(-50%); color: white; font-size: 1.3em; }
+        .content { background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0; }
+        .content p { font-size: 1.1em; color: #555; }
+        #qr-code, #reader { margin: 20px 0; }
+        button { background: #e91e63; color: white; border: none; padding: 12px 25px; font-size: 1em; border-radius: 25px; cursor: pointer; margin: 5px; }
+        button:hover { background: #c2185b; }
+        #secret-content { display: none; color: #e91e63; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chúc Mừng 20/10 🌸</h1>
+        <p>Chúc bạn một ngày thật hạnh phúc và yêu thương! - 09:15 AM, 20/10/2025</p>
+    </header>
+    
+    <main>
+        <div class="hero">
+            <video autoplay loop muted>
+                <source src="https://via.placeholder.com/800x400/ff9a9e/ffffff.mp4?text=Video+20/10" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <h2>Chúc bạn luôn rạng rỡ như hoa! ❤️</h2>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>Chúc bạn một ngày 20/10 tràn đầy niềm vui, sức khỏe và những khoảnh khắc đáng nhớ! 🌹</p>
+        </div>
+        
+        <div class="content">
+            <h3>Xem Lời Chúc Đặc Biệt</h3>
+            <div id="qr-code"></div>
+            <button onclick="generateQR()">Tạo Mã QR</button>
+            <div id="reader"></div>
+            <button onclick="startScan()">Quét Mã QR</button>
+            <div id="secret-content">Bí mật: Chúc bạn nhận được thật nhiều quà xinh xắn hôm nay! 💝</div>
+        </div>
+    </main>
+    
+    <script>
+        function generateQR() {
+            const secretMessage = "Bí mật: Chúc bạn nhận được thật nhiều quà xinh xắn hôm nay! 💝";
+            document.getElementById('qr-code').innerHTML = '';
+            new QRCode(document.getElementById('qr-code'), {
+                text: secretMessage,
+                width: 200,
+                height: 200,
+                colorDark: '#e91e63',
+                colorLight: '#ffffff'
+            });
+        }
+
+        const html5QrCode = new Html5Qrcode('reader');
+        function startScan() {
+            html5QrCode.start(
+                { facingMode: 'environment' },
+                { fps: 10, qrbox: 250 },
+                (decodedText) => {
+                    if (decodedText === "Bí mật: Chúc bạn nhận được thật nhiều quà xinh xắn hôm nay! 💝") {
+                        document.getElementById('secret-content').style.display = 'block';
+                    } else {
+                        alert('Mã QR không khớp!');
+                    }
+                    html5QrCode.stop();
+                },
+                (error) => { console.warn(error); }
+            ).catch(err => {
+                console.error('Không thể quét: ', err);
+                alert('Vui lòng cho phép truy cập camera!');
+            });
+        }
+
+        window.onload = generateQR;
+    </script>
+</body>
+</html>
