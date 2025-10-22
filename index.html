@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chúc Mừng 20/10</title>
+    <title>Gửi đến người con gái anh yêu</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -29,162 +29,177 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+
+        /* ===== SLIDESHOW 9 ẢNH ===== */
         .hero {
             position: relative;
-            height: 400px;
+            height: 600px;
             margin-bottom: 20px;
             overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
-        .hero video {
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .slide {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            object-fit: cover;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.7;
-            z-index: 2;
+            border-radius: 15px;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
+
+        /* Văn bản chúc mừng */
         .hero-content {
-            position: relative;
-            z-index: 3;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 1.3em;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
+        /* Nội dung */
         .content {
             background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .content p {
-            font-size: 1.1em;
-            color: #555;
+            font-size: 1.2em;
+            color: #444;
+            line-height: 1.6;
         }
-        .content img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        /* Hiệu ứng trái tim */
+
+        /* Trái tim bay */
         .heart {
             position: absolute;
-            font-size: 20px;
+            font-size: 22px;
             color: #ff4d4d;
             animation: fly 3s linear;
+            pointer-events: none;
+            z-index: 2;
         }
         @keyframes fly {
             0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
-            100% { transform: translate(100px, -600px) scale(1.5); opacity: 0; }
+            100% { transform: translate(80px, -600px) scale(1.5); opacity: 0; }
         }
-        /* Điều khiển âm thanh */
-        .audio-controls {
-            margin: 20px 0;
-            display: none; /* Ẩn nút ban đầu */
-        }
-        button {
-            background: #e91e63;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #c2185b;
-        }
-        /* Thông báo nếu âm thanh bị chặn */
+
+        /* Thông báo bật nhạc */
         .audio-notice {
             display: none;
             color: #e91e63;
             font-weight: bold;
             margin: 20px 0;
+            cursor: pointer;
+            font-size: 1.1em;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Chúc Mừng 20/10 🌸</h1>
-        <p>Gửi đến người con gái anh yêu ❤️❤️❤️</p>
+        <h1>Gửi đến người con gái anh yêu</h1>
+        <!-- <p>Gửi đến người con gái anh yêu</p> -->
     </header>
     
     <main>
-        <!-- <div class="hero">
-            <video loop controls>
-                <source src="image/hhh.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-content">
-                <h2>Chúc bạn luôn rạng rỡ! ❤️</h2>
+        <!-- SLIDESHOW 9 ẢNH -->
+        <div class="hero">
+            <div class="slideshow">
+                <div class="slide active"><img src="image/1.jfif" ></div>
+                <div class="slide"><img src="image/2 (1).jpg" ></div>
+                <div class="slide"><img src="image/2 (2).JPG" ></div>
+                <div class="slide"><img src="image/2 (3).JPG" ></div>
+                <div class="slide"><img src="image/2 (4).JPG" ></div>
+                <div class="slide"><img src="image/2 (5).jpg" ></div>
+                <div class="slide"><img src="image/2 (6).jpg" ></div>
+                <div class="slide"><img src="image/3.jpg" ></div>
+                <div class="slide"><img src="image/4.jpg" ></div>
             </div>
-        </div> -->
+            <!-- <div class="hero-content">
+                <h2>Mạnh mẽ lên người anh yêu 🥰🥰🥰</h2>
+            </div> -->
+        </div>
         
-        <div class="content">
-            <p>Gửi người con gái a thương, cảm ơn sự xuất hiện của e đã giúp a có thêm động lưc để vượt qua giai đoạn rèn luyện này 🥰🥰🥰</p>
-            <img src="image/iuuu.png" >
-            <img src="image/thưiuuu.png" >
+       <div class="content">
+            <p>🥰🥰🥰</p>
+            
+            <img src="image/thudv.jpg" >
         </div>
     </main>
 
-    <!-- Thông báo nếu âm thanh bị chặn -->
+    <!-- Thông báo bật nhạc -->
     <div class="audio-notice" id="audio-notice">
-        Nhấn vào đây để bật âm thanh nhạc nền! 🎶
+        Nhấn vào đây để bật nhạc nền
     </div>
 
-    <!-- Âm thanh nền -->
-    <audio id="background-audio" src="image/Bản Tình Ca Đầu Tiên (XHTDRLX2) (1).mp3" autoplay muted loop></audio>
+    <!-- Nhạc nền -->
+    <audio id="background-audio" src="image/Gật Đầu (XHTDRLX2).mp3" autoplay muted loop></audio>
 
     <script>
+        // ===== SLIDESHOW: 9 ảnh, mỗi 10 giây =====
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 10000); // 10 giây
+
+        // ===== TRÁI TIM BAY (giới hạn 30) =====
         let heartCount = 0;
         const maxHearts = 30;
 
-        // Hiệu ứng trái tim bay
         function createHeart() {
             if (heartCount < maxHearts) {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
-                heart.innerHTML = '❤️';
+                heart.innerHTML = '🥰';
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.animationDuration = Math.random() * 2 + 3 + 's';
                 document.body.appendChild(heart);
-
                 heartCount++;
 
                 heart.addEventListener('animationend', () => {
                     heart.remove();
-                    heartCount--; // Giảm đếm khi trái tim biến mất
+                    heartCount--;
                 });
             }
         }
-
         setInterval(createHeart, 500);
 
-        // Thử phát âm thanh khi tải trang
+        // ===== NHẠC NỀN TỰ ĐỘNG =====
         window.addEventListener('load', () => {
             const audio = document.getElementById('background-audio');
             audio.play().then(() => {
                 audio.muted = false;
                 document.getElementById('audio-notice').style.display = 'none';
-            }).catch(error => {
-                console.log("Autoplay bị chặn:", error);
+            }).catch(() => {
                 document.getElementById('audio-notice').style.display = 'block';
-                document.getElementById('audio-notice').addEventListener('click', () => {
+                document.getElementById('audio-notice').onclick = () => {
                     audio.muted = false;
-                    audio.play().then(() => {
-                        document.getElementById('audio-notice').style.display = 'none';
-                    }).catch(err => console.log("Lỗi khi bật âm thanh:", err));
-                });
+                    audio.play();
+                    document.getElementById('audio-notice').style.display = 'none';
+                };
             });
         });
     </script>
