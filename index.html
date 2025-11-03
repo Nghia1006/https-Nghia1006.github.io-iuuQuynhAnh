@@ -33,7 +33,10 @@
         /* ===== SLIDESHOW 9 ẢNH ===== */
         .hero {
             position: relative;
-            height: 600px;
+            width: 100%;
+            height: 70vh; /* Chiếm 70% chiều cao màn hình */
+            max-height: 500px; /* Giới hạn tối đa trên màn hình lớn */
+            min-height: 300px; /* Tối thiểu trên điện thoại */
             margin-bottom: 20px;
             overflow: hidden;
             border-radius: 15px;
@@ -66,25 +69,41 @@
 
         /* Văn bản chúc mừng */
         .hero-content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            max-width: 90%;
+            z-index: 3;
+            text-align: center;
         }
 
-        /* Nội dung */
-        .content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .hero-content h2 {
+            margin: 0;
+            font-size: 1.4em;
+            color: #e91e63;
+            font-weight: bold;
         }
-        .content p {
-            font-size: 1.2em;
-            color: #444;
-            line-height: 1.6;
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+                max-height: 400px;
+            }
+            .hero-content h2 {
+                font-size: 1.1em;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .content p {
+                font-size: 1em;
+            }
         }
 
         /* Trái tim bay */
