@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gửi đến người con gái anh yêu</title>
+    <title>💕Gửi đến người con gái anh yêu💕</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -67,27 +67,51 @@
             border-radius: 15px;
         }
 
-        /* Văn bản chúc mừng */
-        .hero-content {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            max-width: 90%;
-            z-index: 3;
-            text-align: center;
-        }
+         /* Văn bản chúc mừng */
+       .text-box {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 25px 20px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        text-align: center;
+        animation: fadeInUp 1.5s ease-out;
+    }
 
-        .hero-content h2 {
-            margin: 0;
-            font-size: 1.4em;
-            color: #e91e63;
-            font-weight: bold;
+        #love-message {
+        font-size: 1.4em;
+        line-height: 1.8;
+        color: #e91e63;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Hiệu ứng xuất hiện mượt */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Siêu đẹp trên điện thoại */
+    @media (max-width: 768px) {
+        .text-box {
+            margin: 20px auto;
+            padding: 20px 15px;
+            border-radius: 18px;
         }
+        #love-message {
+            font-size: 1.25em;
+            line-height: 1.7;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #love-message {
+            font-size: 1.15em;
+        }
+    }
 
         /* Responsive cho điện thoại */
         @media (max-width: 768px) {
@@ -105,6 +129,7 @@
                 font-size: 1em;
             }
         }
+
 
         /* Trái tim bay */
         .heart {
@@ -156,11 +181,14 @@
             </div> -->
         </div>
         
-       <div class="content">
-            <p>🥰"Mạnh mẽ lên người anh yêu"🥰</p>
-            
-            <img src="image/thudv2.jpg" >
-        </div>
+       <div class="text-box">
+        <p id="love-message">
+            Gửi cô gái anh iu 💕 Quỳnh Anh <br><br>
+Cuối tháng công việc bận rộn, nhiều hồ sơ cần phải xử lý. Vậy nhưng đừng vì công việc mà bỏ qua sức khỏe của mình nhó, vẫn có anh ở đây đồng hành cùng em mà 🥰 <br><br>
+Hiện nay anh đang vì nhiệm vụ mà công tác nơi xa, nhưng nhanh thôi anh sẽ về bên nàng, chờ anh nhé 🥰🥰🥰 <br><br>
+Chàng khờ say mê 💕
+        </p>
+    </div>
     </main>
 
     <!-- Thông báo bật nhạc -->
